@@ -153,6 +153,87 @@ const library = [
     return parsedURL;
   }
   
-  const url = 'https://www.example.com:8080/path/to/file.html?query=value#fragment';
+  const url = 'https://www.youtube.com/shorts/I1bZ7GBzbAE';
   const parsed = parseURL(url);
   console.log(parsed);
+
+
+  //9  Write a JavaScript function to retrieve all the names of an object's own and inherited properties
+  function getAllProperties(obj) {
+    let properties = [];
+    
+    // Iterate over all properties, including inherited ones
+    for (let prop in obj) {
+        properties.push(prop);
+    }
+    
+    return properties;
+}
+
+// Example usage
+const parent = { inheritedProp: "I'm inherited" };
+const child = Object.create(parent);
+child.ownProp = "I'm own property";
+
+console.log(getAllProperties(child)); // Output: ["ownProp", "inheritedProp"]
+
+
+
+//10 Write a JavaScript function to retrieve all the values of an object's properties.
+function getOwnPropertyValues(obj) {
+  return Object.values(obj);
+}
+
+const obj = { name: "Wahome", age: 25, city: "Nakuru" };
+console.log(getOwnPropertyValues(obj)); // Output: ["Wahome", 25, "Nakuru"]
+
+
+//11   Write a JavaScript function to convert an object into a list of `[key, value]` pairs.
+function getAllKeyValuePairs(obj) {
+  let keyValuePairs = [];
+  
+  for (let key in obj) {
+      keyValuePairs.push([key, obj[key]]);
+  }
+  
+  return keyValuePairs;
+}
+
+const parent = { inheritedProp: "I'm inherited" };
+const child = Object.create(parent);
+child.ownProp = "I'm own property";
+
+console.log(getAllKeyValuePairs(child));
+
+
+//12 Write a JavaScript function to get a copy of the object where the keys become the values and the values are the keys
+function swapKeysAndValues(obj) {
+  const swapped = {};
+  
+  for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+          swapped[obj[key]] = key;
+      }
+  }
+  
+  return swapped;
+}
+
+const obj = { name: "Wahome", age: "25", city: "Nakuru" };
+console.log(swapKeysAndValues(obj));
+// Output: { Wahome: "name", 25: "age", Nakuru: "city" }
+
+
+//13  Write a JavaScript function to check whether an object contains a given property.
+
+function hasOwnProp(obj, prop) {
+  return obj.hasOwnProperty(prop);
+}
+
+// Example usage
+const obj = { name: "Kevin", age: 18 };
+console.log(hasOwnProp(obj, "name")); // Output: true
+console.log(hasOwnProp(obj, "city")); // Output: false
+
+
+
